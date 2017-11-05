@@ -19,7 +19,6 @@ protocol CoreDataProtocol {
 }
 
 class CoreDataManage: CoreDataProtocol {
-    
     let artistEntity = "Artist"
     let albumEntity = "Album"
     
@@ -118,7 +117,7 @@ class CoreDataManage: CoreDataProtocol {
             let fetchedResults = try getContext().fetch(fetchRequest)
             if fetchedResults.count > 0 {
                 for item in fetchedResults{
-                    let newItem = Discografia(id: item.id, idArtista: item.idArtist, nombre: item.name, year: item.dateRelease, caratula: item.image)
+                    let newItem = Discografia(id: Int(item.id), idArtista: Int(item.idArtist), nombre: item.name!, year: item.dateRelease!, caratula: item.image!)
                     results.append(newItem)
                 }
             }
@@ -133,6 +132,10 @@ class CoreDataManage: CoreDataProtocol {
     func getContext () -> NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
+    }
+    
+    func storeAlbums(idArtist: Int, nameAlbum: String, dateRelease: String, image: String) {
+        
     }
     
     
