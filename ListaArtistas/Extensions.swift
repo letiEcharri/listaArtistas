@@ -38,3 +38,15 @@ extension Date{
         return newDate
     }
 }
+
+extension UIView{
+    func spinner(){
+        let activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 500, height: 500))
+        activityIndicator.center = self.center
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        activityIndicator.startAnimating()
+        self.addSubview(activityIndicator)
+    }
+}
+
+

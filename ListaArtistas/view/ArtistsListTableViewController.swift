@@ -22,7 +22,6 @@ class ArtistsListTableViewController: UITableViewController {
         self.tableView.rowHeight = 83
         self.tableView.separatorColor = UIColor.red
         self.title = "ARTISTAS"
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +35,26 @@ class ArtistsListTableViewController: UITableViewController {
     func goToAlbumsList(){
         performSegue(withIdentifier: "segueListToDetail", sender: nil)
     }
+    
+    func createSubviewSpinner(){
+        let screenBound = self.view.bounds
+        let myView = UIView(frame: CGRect(x: 0, y: 0, width: screenBound.width, height: screenBound.height))
+        myView.backgroundColor = UIColor.black
+        myView.alpha = 0.7
+        myView.tag = 100
+        self.view.addSubview(myView)
+        myView.spinner()
+    }
+    
+    func stopSpinner(){
+        for subview in self.view.subviews{
+            if subview.tag == 100{
+                subview.removeFromSuperview()
+            }
+        }
+    }
+    
+    
     
     // MARK: - Table view data source
 
@@ -61,6 +80,7 @@ class ArtistsListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        createSubviewSpinner()
         artistController = ArtistsController()
         artistController.searchForAlbums(view: self, idArtist: artists[indexPath.row].id)
         nameArtistSelected = artists[indexPath.row].nombre
@@ -111,6 +131,7 @@ class ArtistsListTableViewController: UITableViewController {
             let view: ArtistAlbumsTableViewController  = segue.destination as! ArtistAlbumsTableViewController
             view.topName = nameArtistSelected
             view.discos = discografia
+            stopSpinner()
         }
     }
     
