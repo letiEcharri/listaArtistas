@@ -10,15 +10,18 @@ import Foundation
 
 protocol BaseServiceProtocol {
     func getResultsFromItunes(view: SearchViewController, artista: String)
-    func getAlbumsFromArtistFromItunes(view: ArtistDetailViewController, idArtista: Int)
+    func getAlbumsFromArtistFromItunes(view: ArtistsListTableViewController, idArtista: Int)
 }
 
 class BaseService: BaseServiceProtocol{
     
+    let artistEntity = "Artist"
+    let albumEntity = "Album"
+    
     var coredata: CoreDataManage! = CoreDataManage()
     
     func getResultsFromItunes(view: SearchViewController, artista: String){
-        coredata.deleteAllRecords(entity: "Artist")
+        coredata.deleteAllRecords(entity: artistEntity)
         
         let baseURL: String = "https://itunes.apple.com/search?"
         let musicArtistParam = "entity=musicArtist"
@@ -61,7 +64,9 @@ class BaseService: BaseServiceProtocol{
         }).resume()
     }
     
-    func getAlbumsFromArtistFromItunes(view: ArtistDetailViewController, idArtista: Int){
+    func getAlbumsFromArtistFromItunes(view: ArtistsListTableViewController, idArtista: Int){
+        coredata.deleteAllRecords(entity: albumEntity)
+        
         let fullURL = "https://itunes.apple.com/lookup?id=\(idArtista)&entity=album"
         
         //creating a NSURL
@@ -81,10 +86,13 @@ class BaseService: BaseServiceProtocol{
                                 let idAlbum: Int = artistDict.value(forKey: "collectionId") as! Int
                                 let idArtista: Int = artistDict.value(forKey: "artistId") as! Int
                                 let collectionName: String = artistDict.value(forKey: "collectionName") as! String
-                                let date: String = artistDict.value(forKey: "releaseDate") as! String
                                 let caratula: String = artistDict.value(forKey: "artworkUrl60") as! String
                                 
-                                self.coredata.storeAlbums(idAlbum: idAlbum, idArtist: idArtista, nameAlbum: collectionName, dateRelease: date, image: caratula)
+                                let preDate: String = artistDict.value(forKey: "releaseDate") as! String
+                                let date1 = preDate.split(separator: "T")
+                                let date: String = String(date1[0])
+                                
+                                self.coredata.storeAlbums(id: idAlbum, idArtist: idArtista, nameAlbum: collectionName, dateRelease: date, image: caratula)
                             }
                             
                         }
@@ -92,7 +100,7 @@ class BaseService: BaseServiceProtocol{
                 }
                 OperationQueue.main.addOperation({
                     //calling another function after fetching the json
-                    let controller: ArtistDetailController = ArtistDetailController()
+                    let controller: ArtistsController = ArtistsController()
                     controller.albumsReadyNotice(view: view)
                 })
             }

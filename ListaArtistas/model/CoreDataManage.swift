@@ -14,7 +14,7 @@ protocol CoreDataProtocol {
     func fetchArtists() -> [Artista]
     func storeArtists(idArtist: Int, nameArtist: String, genreArtist: String)
     func deleteAllRecords(entity: String)
-    func storeAlbums(idArtist: Int, nameAlbum: String, dateRelease: String, image: String)
+    func storeAlbums(id: Int, idArtist: Int, nameAlbum: String, dateRelease: String, image: String)
     func fetchAlbums() -> [Discografia]
 }
 
@@ -83,7 +83,7 @@ class CoreDataManage: CoreDataProtocol {
         }
     }
     
-    func storeAlbums(idAlbum: Int, idArtist: Int, nameAlbum: String, dateRelease: String, image: String){
+    func storeAlbums(id: Int, idArtist: Int, nameAlbum: String, dateRelease: String, image: String) {
         let context = getContext()
         
         //retrieve the entity
@@ -91,7 +91,7 @@ class CoreDataManage: CoreDataProtocol {
         let transc = NSManagedObject(entity: entity!, insertInto: context)
         
         //set the entity values
-        transc.setValue(idAlbum, forKey: "id")
+        transc.setValue(id, forKey: "id")
         transc.setValue(idArtist, forKey: "idArtist")
         transc.setValue(nameAlbum, forKey: "name")
         transc.setValue(dateRelease, forKey: "dateRelease")
@@ -117,7 +117,7 @@ class CoreDataManage: CoreDataProtocol {
             let fetchedResults = try getContext().fetch(fetchRequest)
             if fetchedResults.count > 0 {
                 for item in fetchedResults{
-                    let newItem = Discografia(id: Int(item.id), idArtista: Int(item.idArtist), nombre: item.name!, year: item.dateRelease!, caratula: item.image!)
+                    let newItem = Discografia(id: Int(item.id), idArtista: Int(item.idArtist), nombre: item.name!, date: (item.dateRelease?.formatDate())!, caratula: item.image!)
                     results.append(newItem)
                 }
             }
@@ -134,9 +134,7 @@ class CoreDataManage: CoreDataProtocol {
         return appDelegate.persistentContainer.viewContext
     }
     
-    func storeAlbums(idArtist: Int, nameAlbum: String, dateRelease: String, image: String) {
-        
-    }
+    
     
     
 }

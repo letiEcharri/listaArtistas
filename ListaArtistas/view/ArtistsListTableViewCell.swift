@@ -29,7 +29,7 @@ class ArtistsListTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        print("ID ARTISTA: \(idArtist)")
+        //print("ID ARTISTA: \(idArtist)")
     }
 
 }

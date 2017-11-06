@@ -1,70 +1,48 @@
 //
-//  ArtistsListTableViewController.swift
+//  ArtistAlbumsTableViewController.swift
 //  ListaArtistas
 //
-//  Created by Leticia on 3/11/17.
+//  Created by Leticia on 6/11/17.
 //  Copyright © 2017 Leticia. All rights reserved.
 //
 
 import UIKit
 
-class ArtistsListTableViewController: UITableViewController {
+class ArtistAlbumsTableViewController: UITableViewController {
     
-    var searchController: SearchViewController!
-    var artistController: ArtistsController!
-    var artists: [Artista] = [Artista]()
-    var nameArtistSelected: String = ""
-    var discografia: [Discografia] = [Discografia]()
+    var topName: String = ""
+    var discos: [Discografia] = [Discografia]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("NUMERO FILAS: \(artists.count)")
-        self.tableView.rowHeight = 83
-        self.tableView.separatorColor = UIColor.red
-        self.title = "ARTISTAS"
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        let controller: ArtistsController = ArtistsController()
-        artists = controller.getArtists()
-    }
-    
-    @IBAction func newSearch(_ sender: UIBarButtonItem) {
-    }
-    
-    func goToAlbumsList(){
-        performSegue(withIdentifier: "segueListToDetail", sender: nil)
-    }
-    
-    // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        self.title = topName
+        self.tableView.rowHeight = 100
     }
+
+    
+
+    // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return artists.count
+        return discos.count
     }
 
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ArtistCell", for: indexPath) as! ArtistsListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "albumCell", for: indexPath) as! ArtistAlbumsListTableViewCell
         
+        let disco: Discografia = discos[indexPath.row]
+
         // Configure the cell...
-        cell.display(name: artists[indexPath.row].nombre)
-        cell.display(genre: artists[indexPath.row].estilo)
-        cell.save(id: artists[indexPath.row].id)
+        cell.display(name: disco.nombre)
+        cell.display(date: disco.date)
+        cell.display(image: disco.caratula)
 
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        artistController = ArtistsController()
-        artistController.searchForAlbums(view: self, idArtist: artists[indexPath.row].id)
-        nameArtistSelected = artists[indexPath.row].nombre
-    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -101,18 +79,14 @@ class ArtistsListTableViewController: UITableViewController {
     }
     */
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "segueListToDetail"{
-            let view: ArtistAlbumsTableViewController  = segue.destination as! ArtistAlbumsTableViewController
-            view.topName = nameArtistSelected
-            view.discos = discografia
-        }
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
-    
+    */
 
 }

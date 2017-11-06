@@ -12,6 +12,9 @@ protocol ArtistsControllerProtocol {
     func searchForArtists(view: SearchViewController, nameArtist: String)
     func artistsReadyNotice(view: SearchViewController)
     func getArtists() -> [Artista]
+    func searchForAlbums(view: ArtistsListTableViewController, idArtist: Int)
+    func getAlbums() -> [Discografia]
+    func albumsReadyNotice(view: ArtistsListTableViewController)
 }
 
 class ArtistsController: ArtistsControllerProtocol {
@@ -30,5 +33,18 @@ class ArtistsController: ArtistsControllerProtocol {
     
     func getArtists() -> [Artista] {
         return coreData.fetchArtists()
+    }
+    
+    func searchForAlbums(view: ArtistsListTableViewController, idArtist: Int) {
+        baseService.getAlbumsFromArtistFromItunes(view: view, idArtista: idArtist)
+    }
+    
+    func getAlbums() -> [Discografia]{
+        return coreData.fetchAlbums()
+    }
+    
+    func albumsReadyNotice(view: ArtistsListTableViewController){
+        view.discografia = getAlbums()
+        view.goToAlbumsList()
     }
 }

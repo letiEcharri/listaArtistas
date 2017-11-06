@@ -12,6 +12,6 @@ struct Discografia {
     let id: Int
     let idArtista: Int
     let nombre: String
-    let year: String
+    let date: Date
     let caratula: String
 }
