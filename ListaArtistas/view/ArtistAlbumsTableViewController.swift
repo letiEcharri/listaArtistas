@@ -18,6 +18,13 @@ class ArtistAlbumsTableViewController: UITableViewController {
 
         self.title = topName
         self.tableView.rowHeight = 100
+        
+        // Add a background view to the table view
+        let backgroundImage = UIImage(named: "music.jpeg")
+        let imageView = UIImageView(image: backgroundImage)
+        imageView.contentMode = .scaleAspectFill
+        imageView.alpha = 0.2
+        self.tableView.backgroundView = imageView
     }
 
     
@@ -39,6 +46,9 @@ class ArtistAlbumsTableViewController: UITableViewController {
         cell.display(name: disco.nombre)
         cell.display(date: disco.date)
         cell.display(image: disco.caratula)
+        
+        //Background image
+        cell.backgroundColor = .clear
 
         return cell
     }

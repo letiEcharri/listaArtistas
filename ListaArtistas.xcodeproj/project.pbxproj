@@ -25,6 +25,9 @@
 		F3A909551FB06F2100DFAAA6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A909541FB06F2100DFAAA6 /* Extensions.swift */; };
 		F3A909571FB0769100DFAAA6 /* ArtistAlbumsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A909561FB0769100DFAAA6 /* ArtistAlbumsTableViewController.swift */; };
 		F3A9095C1FB087B000DFAAA6 /* noImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3A9095B1FB087B000DFAAA6 /* noImage.jpg */; };
+		F3A909601FB0CB3400DFAAA6 /* singerconcertfour.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3A9095F1FB0CB3400DFAAA6 /* singerconcertfour.jpg */; };
+		F3A909621FB0CD8F00DFAAA6 /* singerman.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3A909611FB0CD8F00DFAAA6 /* singerman.jpg */; };
+		F3A909641FB0D09F00DFAAA6 /* music.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F3A909631FB0D09F00DFAAA6 /* music.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,9 @@
 		F3A909541FB06F2100DFAAA6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F3A909561FB0769100DFAAA6 /* ArtistAlbumsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAlbumsTableViewController.swift; sourceTree = "<group>"; };
 		F3A9095B1FB087B000DFAAA6 /* noImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noImage.jpg; sourceTree = SOURCE_ROOT; };
+		F3A9095F1FB0CB3400DFAAA6 /* singerconcertfour.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = singerconcertfour.jpg; sourceTree = SOURCE_ROOT; };
+		F3A909611FB0CD8F00DFAAA6 /* singerman.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = singerman.jpg; sourceTree = SOURCE_ROOT; };
+		F3A909631FB0D09F00DFAAA6 /* music.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = music.jpeg; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +181,9 @@
 		F3A909581FB0844F00DFAAA6 /* pictures */ = {
 			isa = PBXGroup;
 			children = (
+				F3A909631FB0D09F00DFAAA6 /* music.jpeg */,
+				F3A909611FB0CD8F00DFAAA6 /* singerman.jpg */,
+				F3A9095F1FB0CB3400DFAAA6 /* singerconcertfour.jpg */,
 				F3A9095B1FB087B000DFAAA6 /* noImage.jpg */,
 			);
 			path = pictures;
@@ -265,8 +274,11 @@
 			files = (
 				F39BBE341FAC6A3500E294DD /* LaunchScreen.storyboard in Resources */,
 				F39BBE311FAC6A3500E294DD /* Assets.xcassets in Resources */,
+				F3A909621FB0CD8F00DFAAA6 /* singerman.jpg in Resources */,
 				F3A9095C1FB087B000DFAAA6 /* noImage.jpg in Resources */,
 				F39BBE2C1FAC6A3500E294DD /* Main.storyboard in Resources */,
+				F3A909641FB0D09F00DFAAA6 /* music.jpeg in Resources */,
+				F3A909601FB0CB3400DFAAA6 /* singerconcertfour.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

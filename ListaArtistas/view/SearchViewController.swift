@@ -18,6 +18,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     @IBAction func searchAction(_ sender: UIButton) {

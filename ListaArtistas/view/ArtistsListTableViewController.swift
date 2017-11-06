@@ -20,8 +20,15 @@ class ArtistsListTableViewController: UITableViewController {
         super.viewDidLoad()
         print("NUMERO FILAS: \(artists.count)")
         self.tableView.rowHeight = 83
-        self.tableView.separatorColor = UIColor.red
+        self.tableView.separatorColor = UIColor.gray
         self.title = "ARTISTAS"
+        
+        // Add a background view to the table view
+        let backgroundImage = UIImage(named: "singerman.jpg")
+        let imageView = UIImageView(image: backgroundImage)
+        imageView.contentMode = .scaleAspectFill
+        imageView.alpha = 0.2
+        self.tableView.backgroundView = imageView
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,6 +82,9 @@ class ArtistsListTableViewController: UITableViewController {
         cell.display(name: artists[indexPath.row].nombre)
         cell.display(genre: artists[indexPath.row].estilo)
         cell.save(id: artists[indexPath.row].id)
+        
+        //Background image
+        cell.backgroundColor = .clear
 
         return cell
     }
