@@ -7,4 +7,5 @@ Información recogida de la API de iTunes
 Para instalar Alamofire hace falta actualizar Carthage y Cocoapods, para ello ejecutar los siguientes comandos en el terminal:
 
 carthage update
+
 pod install
