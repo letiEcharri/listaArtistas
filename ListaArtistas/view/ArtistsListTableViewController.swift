@@ -29,6 +29,7 @@ class ArtistsListTableViewController: UITableViewController {
         imageView.contentMode = .scaleAspectFill
         imageView.alpha = 0.2
         self.tableView.backgroundView = imageView
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4DEB1DB738B4E33E27D828F4 /* Pods_ListaArtistas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F855A7B40F508FD5B23B74A2 /* Pods_ListaArtistas.framework */; };
 		F31E2B2C1FAF7AB3002A384F /* ArtistsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31E2B2B1FAF7AB3002A384F /* ArtistsController.swift */; };
 		F31E2B301FAF997A002A384F /* Discografia.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31E2B2F1FAF997A002A384F /* Discografia.swift */; };
 		F39BBE271FAC6A3500E294DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39BBE261FAC6A3500E294DD /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 		F3A909601FB0CB3400DFAAA6 /* singerconcertfour.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3A9095F1FB0CB3400DFAAA6 /* singerconcertfour.jpg */; };
 		F3A909621FB0CD8F00DFAAA6 /* singerman.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3A909611FB0CD8F00DFAAA6 /* singerman.jpg */; };
 		F3A909641FB0D09F00DFAAA6 /* music.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F3A909631FB0D09F00DFAAA6 /* music.jpeg */; };
+		F3E2C9071FB5F4A0001A4D83 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3E2C9061FB5F4A0001A4D83 /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3923DC49D66117171AC45713 /* Pods-ListaArtistas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListaArtistas.release.xcconfig"; path = "Pods/Target Support Files/Pods-ListaArtistas/Pods-ListaArtistas.release.xcconfig"; sourceTree = "<group>"; };
+		77C1AB63C8BD977F32D43976 /* Pods-ListaArtistas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListaArtistas.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ListaArtistas/Pods-ListaArtistas.debug.xcconfig"; sourceTree = "<group>"; };
 		F31E2B2B1FAF7AB3002A384F /* ArtistsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsController.swift; sourceTree = "<group>"; };
 		F31E2B2F1FAF997A002A384F /* Discografia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discografia.swift; sourceTree = "<group>"; };
 		F39BBE231FAC6A3500E294DD /* ListaArtistas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListaArtistas.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +70,8 @@
 		F3A9095F1FB0CB3400DFAAA6 /* singerconcertfour.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = singerconcertfour.jpg; sourceTree = SOURCE_ROOT; };
 		F3A909611FB0CD8F00DFAAA6 /* singerman.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = singerman.jpg; sourceTree = SOURCE_ROOT; };
 		F3A909631FB0D09F00DFAAA6 /* music.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = music.jpeg; sourceTree = SOURCE_ROOT; };
+		F3E2C9061FB5F4A0001A4D83 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
+		F855A7B40F508FD5B23B74A2 /* Pods_ListaArtistas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ListaArtistas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3E2C9071FB5F4A0001A4D83 /* Alamofire.framework in Frameworks */,
+				4DEB1DB738B4E33E27D828F4 /* Pods_ListaArtistas.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,9 +94,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E466B7ED83973123B5DFA06 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				77C1AB63C8BD977F32D43976 /* Pods-ListaArtistas.debug.xcconfig */,
+				3923DC49D66117171AC45713 /* Pods-ListaArtistas.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9AC6EF17677C05AFE298EEAF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F3E2C9061FB5F4A0001A4D83 /* Alamofire.framework */,
+				F855A7B40F508FD5B23B74A2 /* Pods_ListaArtistas.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -101,6 +120,7 @@
 				F39BBE3D1FAC6A3500E294DD /* ListaArtistasTests */,
 				F39BBE241FAC6A3500E294DD /* Products */,
 				9AC6EF17677C05AFE298EEAF /* Frameworks */,
+				8E466B7ED83973123B5DFA06 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -196,9 +216,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F39BBE431FAC6A3500E294DD /* Build configuration list for PBXNativeTarget "ListaArtistas" */;
 			buildPhases = (
+				5190522CE463FDEEEEFD350B /* [CP] Check Pods Manifest.lock */,
 				F39BBE1F1FAC6A3500E294DD /* Sources */,
 				F39BBE201FAC6A3500E294DD /* Frameworks */,
 				F39BBE211FAC6A3500E294DD /* Resources */,
+				22685977E584CBE391823A6E /* [CP] Embed Pods Frameworks */,
+				BA5F532BD06C235694908A83 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -290,6 +313,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		22685977E584CBE391823A6E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ListaArtistas/Pods-ListaArtistas-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ListaArtistas/Pods-ListaArtistas-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5190522CE463FDEEEEFD350B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ListaArtistas-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA5F532BD06C235694908A83 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ListaArtistas/Pods-ListaArtistas-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F39BBE1F1FAC6A3500E294DD /* Sources */ = {
@@ -459,9 +536,14 @@
 		};
 		F39BBE441FAC6A3500E294DD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77C1AB63C8BD977F32D43976 /* Pods-ListaArtistas.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ListaArtistas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ejemplo.ListaArtistas;
@@ -473,9 +555,14 @@
 		};
 		F39BBE451FAC6A3500E294DD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3923DC49D66117171AC45713 /* Pods-ListaArtistas.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ListaArtistas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ejemplo.ListaArtistas;

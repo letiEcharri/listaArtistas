@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol BaseServiceProtocol {
     func getResultsFromItunes(view: SearchViewController, artista: String)
@@ -27,15 +28,10 @@ class BaseService: BaseServiceProtocol{
         let musicArtistParam = "entity=musicArtist"
         
         let fullURL = "\(baseURL)\(musicArtistParam)&term=\(artista)"
-        //creating a NSURL
-        let url = NSURL(string: fullURL)
-        //fetching the data from the url
-        URLSession.shared.dataTask(with: (url as URL?)!, completionHandler: {(data, response, error) -> Void in
+        
+        Alamofire.request(fullURL).responseJSON { response in
             
-            if let jsonObj = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSDictionary {
-                
-                //printing the json in console
-                //print(jsonObj!.value(forKey: "results")!)
+            if let jsonObj = try? JSONSerialization.jsonObject(with: response.data!, options: .allowFragments) as? NSDictionary{
                 
                 //getting the result tag array from json and converting it to NSArray
                 if let artistArray = jsonObj?.value(forKey: "results") as? NSArray{
@@ -50,18 +46,20 @@ class BaseService: BaseServiceProtocol{
                                 genre = artistDict.value(forKey: "primaryGenreName") as! String
                             }
                             self.coredata.storeArtists(idArtist: id, nameArtist: name, genreArtist: genre)
+                            
                         }
                     }
                 }
-                
                 
                 OperationQueue.main.addOperation({
                     //calling another function after fetching the json
                     let controller: ArtistsController = ArtistsController()
                     controller.artistsReadyNotice(view: view)
                 })
+                
             }
-        }).resume()
+            
+        }
     }
     
     func getAlbumsFromArtistFromItunes(view: ArtistsListTableViewController, idArtista: Int){
@@ -69,12 +67,9 @@ class BaseService: BaseServiceProtocol{
         
         let fullURL = "https://itunes.apple.com/lookup?id=\(idArtista)&entity=album"
         
-        //creating a NSURL
-        let url = NSURL(string: fullURL)
-        //fetching the data from the url
-        URLSession.shared.dataTask(with: (url as URL?)!, completionHandler: {(data, response, error) -> Void in
+        Alamofire.request(fullURL).responseJSON { response in
             
-            if let jsonObj = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSDictionary {
+            if let jsonObj = try? JSONSerialization.jsonObject(with: response.data!, options: .allowFragments) as? NSDictionary{
                 
                 //getting the result tag array from json and converting it to NSArray
                 if let artistArray = jsonObj?.value(forKey: "results") as? NSArray{
@@ -103,7 +98,11 @@ class BaseService: BaseServiceProtocol{
                     let controller: ArtistsController = ArtistsController()
                     controller.albumsReadyNotice(view: view)
                 })
+                
             }
-        }).resume()
+            
+        }
     }
+    
+    
 }
